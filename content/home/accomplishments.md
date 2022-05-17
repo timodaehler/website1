@@ -1,3 +1,4 @@
+accomplishments.md: 
 ---
 # An instance of the Accomplishments widget.
 # Documentation: https://wowchemy.com/docs/page-builder/
@@ -23,30 +24,44 @@ date_format: Jan 2006
 #   Leave other parameters empty if not required.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 item:
-  - certificate_url: https://www.coursera.org
+  - certificate_url: https://www.coursera.org/account/accomplishments/verify/ZGYP3QSY4A2E?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course
     date_end: ''
-    date_start: '2021-01-25'
+    date_start: '2021-10-01'
     description: ''
     organization: Coursera
     organization_url: https://www.coursera.org
-    title: Neural Networks and Deep Learning
+    title: Machine Learning
     url: ''
-  - certificate_url: https://www.edx.org
+    
+  - certificate_url: https://certificates.cs50.io/29666f74-9f23-4add-b37d-4637996b32b6.pdf?size=letter
     date_end: ''
-    date_start: '2021-01-01'
-    description: Formulated informed blockchain models, hypotheses, and use cases.
+    date_start: '2021-08-01'
+    description: 
     organization: edX
     organization_url: https://www.edx.org
-    title: Blockchain Fundamentals
-    url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-  - certificate_url: https://www.datacamp.com
-    date_end: '2020-12-21'
-    date_start: '2020-07-01'
+    title: CS50 Introduction to Computer Science
+    url: 
+    
+    
+  - certificate_url: https://www.datacamp.com/statement-of-accomplishment/track/a2196797ec56bc3fea616988e5f89cfd3531a9ba
+    date_end: ''
+    date_start: '2020-06-01'
     description: ''
     organization: DataCamp
     organization_url: https://www.datacamp.com
-    title: 'Object-Oriented Programming in R'
-    url: ''
+    title: 'Data Scientist with R'
+    url: 
+
+
+  - certificate_url: https://www.datacamp.com/statement-of-accomplishment/track/a2196797ec56bc3fea616988e5f89cfd3531a9ba
+    date_end: ''
+    date_start: '2020-04-01'
+    description: ''
+    organization: DataCamp
+    organization_url: https://www.datacamp.com
+    title: 'Introduction to SQL'
+    url: 
+
 
 design:
   columns: '2'
