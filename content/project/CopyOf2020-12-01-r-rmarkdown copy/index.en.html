@@ -13,7 +13,9 @@ tags: ["R Markdown", "plot", "regression"]
 <p>Hello
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
 <p>You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)
+<pre class="r"><code>library(ggplot2) # new xxx
+## Warning: package &#39;ggplot2&#39; was built under R version 4.0.2
+summary(cars)
 ##      speed           dist       
 ##  Min.   : 4.0   Min.   :  2.00  
 ##  1st Qu.:12.0   1st Qu.: 26.00  
@@ -29,7 +31,9 @@ fit
 ## 
 ## Coefficients:
 ## (Intercept)        speed  
-##     -17.579        3.932</code></pre>
+##     -17.579        3.932
+ggplot(data = cars) + geom_line(mapping = aes(x = speed, y = dist, color = &quot;red&quot;)) # new xxx</code></pre>
+<p><img src="{{< blogdown/postref >}}index.en_files/figure-html/cars-1.png" width="672" /></p>
 </div>
 <div id="including-plots" class="section level1">
 <h1>Including Plots</h1>
