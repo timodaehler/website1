@@ -18,12 +18,169 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 You can embed an R code chunk like this:
 
-```{r cars, echo=FALSE, results = FALSE, warning = FALSE}
-library(ggplot2) # new xxx
-summary(cars)
-fit <- lm(dist ~ speed, data = cars)
-fit
-ggplot(data = cars) + geom_line(mapping = aes(x = speed, y = dist, color = "red")) # new xxx
+```{r echo=FALSE, results = FALSE, warning = FALSE, message = FALSE}
+# install.packages("tidyquant")
+# install.packages("fredr")
+# install.packages("priceR")
+
+library(tidyquant)
+library(tidyverse)
+library(ggplot2)
+library(fredr)
+library(priceR)
+
+
+today <- Sys.Date()
+options("getSymbols.warning4.0"=FALSE)
+options("getSymbols.yahoo.warning"=FALSE)
+
+
+
+getSymbols("^W5000", from = '1971-01-01',
+           to = Sys.Date(),warnings = FALSE,
+           auto.assign = TRUE)
+
+
+
+a <- historical_exchange_rates("USD", to = "CHF",
+                          start_date = "2000-01-01", end_date = Sys.Date())
+a <- as.tibble(a)
+a
+
+# ggplot(data = a) + geom_line(mapping = aes(x = date, y = one_USD_equivalent_to_x_CHF))
+
+
+W5000_df <- as.data.frame(W5000)
+
+W5000_df <- cbind(date = rownames(W5000_df), W5000_df)
+
+# rownames(W5000_df) <- 1:nrow(W5000_df)
+
+as.tibble(W5000_df)
+
+W5000_df$date <- parse_date(W5000_df$date)
+
+W5000_df <- select(W5000_df, date, W5000.Close)
+rownames(W5000_df) = 1:nrow(W5000_df)
+
+W5000_df <- arrange(W5000_df, desc(date))
+
+# ggplot(data = W5000_df) + geom_line(mapping = aes( x = date, y = W5000.Close ) )
+
+GDP <- fredr(
+  series_id = "GDP",
+  observation_start = as.Date("1971-01-01"),
+  observation_end = today ) 
+
+
+merged <- left_join(x = GDP, y = W5000_df, by=c("date" = "date"))
+
+merged <- select(merged, date, value, W5000.Close)
+merged <- fill(merged, W5000.Close, .direction = "down")
+merged <- merged %>% mutate(ratio = W5000.Close/value)
+
+# ggplot(data = merged, mapping = aes(x=date, y = ratio)) + geom_line() + geom_smooth(method = "gam", se = FALSE) + ylim(0, 2)
+# ggplot(data = merged) + geom_line(mapping = aes(x=date, y = c(ratio))) +  geom_line(mapping = aes(x=date, y = c(value))) + geom_line(aes(x = date, y = W5000.Close), color = "blue") 
+
+today <- today()
+
+FederalFundsRate <- fredr(
+  series_id = "DFF",
+  observation_start = as.Date("1971-01-01"),
+  observation_end = today ) 
+
+FederalFundsRate <- FederalFundsRate %>% 
+  select(date, value) 
+colnames(FederalFundsRate) <- c("date", "FederalFundsRate")
+
+FederalFundsRate
+# ggplot(data = FederalFundsRate) +geom_line(mapping = aes(x = date, y = FederalFundsRate)) 
+
+
+
+CPI <- fredr(
+  series_id = "CPIAUCSL",
+  observation_start = as.Date("1971-01-01"),
+  observation_end = today ) 
+
+CPI <- as.data.frame(CPI)
+CPI <- mutate(CPI, value_lagged = lag(value))
+CPI <- mutate(CPI, inflation_rate = value - lag(value))
+
+CPI <- CPI %>% 
+  select(date, inflation_rate) 
+colnames(CPI) <- c("date", "CPI")
+
+# ggplot(CPI) +geom_line(mapping = aes(x = date, y = CPI)) 
+
+
+
+GDP <- fredr(
+  series_id = "GDPC1",
+  observation_start = as.Date("1971-01-01"),
+  observation_end = today() ) 
+
+GDP <- GDP %>% 
+  select(date, value) 
+colnames(GDP) <- c("date", "GDP")
+
+# ggplot(data = GDP) +geom_line(mapping = aes(x = date, y = GDP)) 
+
+GDPPOT <- fredr(
+  series_id = "GDPPOT",
+  observation_start = as.Date("1971-01-01"),
+  observation_end = today ) 
+
+GDPPOT <- GDPPOT %>% 
+select(date, value) 
+colnames(GDPPOT) <- c("date", "GDPPOT")
+
+# ggplot(data = GDPPOT) +geom_line(mapping = aes(x = date, y = GDPPOT)) 
+
+
+GDPs <- left_join(GDP, GDPPOT, by = c("date" = "date"))
+GDPs <- GDPs %>% mutate(output_gap = 100*(GDP-GDPPOT)/GDP  )
+
+
+# ggplot(data = GDPs) + geom_line(mapping =aes(x = date, y = GDP)) + geom_line(mapping =aes(x = date, y = GDPPOT, color = "red")) 
+# ggplot(data = GDPs) + geom_line(mapping = aes(x = date, y = output_gap))
+
+
+DEFLATOR <- fredr(
+  series_id = "USAGDPDEFQISMEI",
+  observation_start = as.Date("1971-01-01"),
+  observation_end = today ) 
+
+DEFLATOR <- as.data.frame(DEFLATOR)
+DEFLATOR <- mutate(DEFLATOR, value_lagged = lag(value))
+DEFLATOR <- mutate(DEFLATOR, deflator_rate = value - lag(value))
+
+DEFLATOR <- DEFLATOR %>% 
+  select(date, deflator_rate) 
+colnames(DEFLATOR) <- c("date", "DEFLATOR")
+
+# ggplot(DEFLATOR) +geom_line(mapping = aes(x = date, y = DEFLATOR)) 
+
+
+
+
+
+
+first <- left_join(GDPs, CPI)
+second <- left_join(first, FederalFundsRate)
+third <- left_join(second, DEFLATOR)
+
+# third <- select(third, date, output_gap, CPI, FederalFundsRate)
+
+
+third <- mutate(third, r_inflation = CPI + 0.5*output_gap + 0.5*(CPI-2) + 2)
+third <- mutate(third, r_deflator = DEFLATOR + 0.5*output_gap + 0.5*(DEFLATOR-2) + 2)
+
+third <- filter(third, date >= "1990-01-01")
+
+# ggplot(data = third) + geom_line(mapping = aes(x = date, y = r_inflation)) + geom_line(mapping = aes(x = date, y = FederalFundsRate, color = "red"))
+ggplot(data = third) + geom_line(mapping = aes(x = date, y = r_deflator)) + geom_line(mapping = aes(x = date, y = FederalFundsRate, color = "red"))
+
 ```
 
 
