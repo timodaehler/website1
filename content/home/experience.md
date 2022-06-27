@@ -9,7 +9,7 @@ headless: true
 # Order that this section appears on the page.
 weight: 40
 
-title: Experience
+title: Education
 subtitle:
 
 # Date format for experience
@@ -30,12 +30,14 @@ experience:
     date_start: '2018-01-01'
     date_end: '2021-08-01'
     description: |2-
-        Dissertation topic: 
-        * Essays on sovereign debt 
-        Classes taught: 
-        * Introduction to Macroeconomics
+        Dissertation: 
+        * Essays on sovereign debt
+        * Committee: Joshua Aizenman, Saori Katada, Pablo Barberá & Jeff Nugent
+
+        Teaching: 
         * Intermediate Macroeconomics
-        * The Global Economy
+        * Introduction to Macroeconomics
+        * International
 
   - title: MA in Economics
     company: University of Southern California

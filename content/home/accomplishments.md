@@ -53,14 +53,7 @@ item:
     url: 
 
 
-  - certificate_url: https://www.datacamp.com/statement-of-accomplishment/track/a2196797ec56bc3fea616988e5f89cfd3531a9ba
-    date_end: ''
-    date_start: '2020-04-01'
-    description: ''
-    organization: DataCamp
-    organization_url: https://www.datacamp.com
-    title: 'Introduction to SQL'
-    url: 
+
 
 
 design:
