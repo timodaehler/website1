@@ -41,7 +41,7 @@ social:
   link: https://github.com/timodaehler
 
 superuser: true
-title: Timo B. Dähler
+title: Timo B. Dähle
 
 ---
 I’m Timo, it is great to have you here. I have an academic background in economics and professional experience in investment analysis. When I don't spend my free time discovering the Swiss alps, I dabble in data science: Over the years, I have grown a particular interest in data visualization and coummunicating data-driven insights. 
