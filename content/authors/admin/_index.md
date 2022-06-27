@@ -1,6 +1,5 @@
 ---
-bio: My research interests include distributed robotics, mobile computing and programmable
-  matter.
+bio: 
 education:
   courses:
   - course: PhD in International Political Economy
@@ -26,7 +25,7 @@ role: Economist & Mountain Lover
 social:
 - icon: envelope
   icon_pack: fas
-  link: "mailto:your@email.com"
+  link: "mailto:timo.daehler@email.com"
 - icon: linkedin
   icon_pack: fab
   link: https://www.linkedin.com/in/timodaehler/
