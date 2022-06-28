@@ -11,13 +11,13 @@ organizations:
 role: Economist & Mountain Lover
 social:
 - icon: envelope
-  icon_pack: fas
+  icon_pack: far
   link: "mailto:timo.daehler@email.com"
 - icon: linkedin
   icon_pack: fab
   link: https://www.linkedin.com/in/timodaehler/
 # - icon: twitter
-#   icon_pack: fab
+#   icon_pack: fa
 #   link: https://twitter.com/GeorgeCushen
 # - icon: graduation-cap
 #   icon_pack: fas
@@ -37,6 +37,8 @@ I have an academic background in economics and professional experience in risk m
 I've always lived at the intersection of different (and sometimes opposing) worlds: a PhD economist who cares more about understanding the  about than the mathematical beauty of a theory, a creative fiction writer with a mathy bent, and a rigorous researcher who is laser-focused on causal inference and the messy interactions of the real world. 
 
 If you think we could collaborate on cool work, I'd love to hear from you!
+
+{{% staticref "uploads/resume.pdf" "newtab" %}}<i class="fa-solid fa-file-arrow-down"></i> CV {{% /staticref %}}
 
 
 
