@@ -1,23 +1,10 @@
 ---
 bio: 
 education:
-  courses:
-  - course: PhD in International Political Economy
-    institution: University of Southern California
-    year: 2021
-  - course: MA in Economics
-    institution: University of Southern California
-    year: 2017
-  - course: BA in Economics
-    institution: University of St.Gallen, Switzerland
-    year: 2016
+
 email: 
 highlight_name: true
-interests:
-- Macroeconomics
-- Investment analysis
-- Mountaineering
-- ☕ & 🍷
+
 organizations:
 - name: 
   url: 
