@@ -7,7 +7,7 @@ widget: experience
 headless: true
 
 # Order that this section appears on the page.
-weight: 40
+weight: 100
 
 title: Education
 subtitle:
@@ -69,4 +69,6 @@ experience:
 
 design:
   columns: '2'
+  
 ---
+
