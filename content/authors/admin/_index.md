@@ -11,7 +11,7 @@ organizations:
 role: Economist & Mountain Lover
 social:
 - icon: envelope
-  icon_pack: far
+  icon_pack: fas
   link: "mailto:timo.daehler@email.com"
 - icon: linkedin
   icon_pack: fab
