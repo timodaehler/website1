@@ -1,5 +1,5 @@
 ---
-bio: 
+bio:
 education:
 
 email: 
@@ -8,7 +8,7 @@ highlight_name: true
 organizations:
 - name: 
   url: 
-role: Economist & Mountain Loverrr
+role: Economist & Mountain Lover
 social:
 - icon: envelope
   icon_pack: fas
@@ -19,14 +19,12 @@ social:
 # - icon: twitter
 #   icon_pack: fab
 #   link: https://twitter.com/GeorgeCushen
-
-
 # - icon: graduation-cap
 #   icon_pack: fas
 #   link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
-- icon: github
-  icon_pack: fab
-  link: https://github.com/timodaehler
+# - icon: github
+#   icon_pack: fab
+#   link: https://github.com/timodaehler
 
 superuser: true
 title: Timo B. Dähler 

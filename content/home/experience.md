@@ -59,7 +59,7 @@ experience:
     
     
   - title: BA in Economics
-    company: University of Southern California
+    company: University of St. Gallen xxxxx
     company_url: ''
     company_logo: org-hsg-color
     location: St. Gallen, Switzerland
