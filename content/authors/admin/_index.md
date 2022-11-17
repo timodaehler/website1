@@ -8,7 +8,7 @@ highlight_name: true
 organizations:
 - name: 
   url: 
-role: Economist & Mountain Lover
+role: Economist & Mountain Loverrr
 social:
 - icon: envelope
   icon_pack: fas
@@ -17,8 +17,10 @@ social:
   icon_pack: fab
   link: https://www.linkedin.com/in/timodaehler/
 # - icon: twitter
-#   icon_pack: fa
+#   icon_pack: fab
 #   link: https://twitter.com/GeorgeCushen
+
+
 # - icon: graduation-cap
 #   icon_pack: fas
 #   link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
