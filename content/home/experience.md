@@ -31,7 +31,7 @@ experience:
     date_end: '2021-08-01'
     description: |2-
         Dissertation: 
-        * Essays on sovereign debt
+        * Essays on Sovereign Debt
         * Committee: Joshua Aizenman, Saori Katada, Pablo Barberá & Jeff Nugent
 
         Teaching: 
