@@ -37,7 +37,7 @@ experience:
         Teaching: 
         * Intermediate Macroeconomics
         * Introduction to Macroeconomics
-        * International
+        * International Economics
 
   - title: MA in Economics
     company: University of Southern California
@@ -59,7 +59,7 @@ experience:
     
     
   - title: BA in Economics
-    company: University of St. Gallen xxxxx
+    company: University of St. Gallen
     company_url: ''
     company_logo: org-hsg-color
     location: St. Gallen, Switzerland
